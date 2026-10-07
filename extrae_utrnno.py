@@ -20,12 +20,17 @@ print("Menú Módulos SVFE:")
 for numero, modulo in enumerate(MODULOS, start=1):
     print(f"{numero}. {modulo}")
 print(f"{len(MODULOS) + 1}. OTRO")
+print(f"{len(MODULOS) + 2}. Cancelar")
 
 while True:
     seleccion = input("Seleccione el módulo que desea verificar: ").strip()
-    if seleccion.isdigit() and 1 <= int(seleccion) <= len(MODULOS) + 1:
+    if seleccion.isdigit() and 1 <= int(seleccion) <= len(MODULOS) + 2:
         break
-    print(f"Selección inválida. Ingrese un número entre 1 y {len(MODULOS) + 1}.")
+    print(f"Selección inválida. Ingrese un número entre 1 y {len(MODULOS) + 2}.")
+
+if int(seleccion) == len(MODULOS) + 2:
+    print("Operación cancelada.")
+    raise SystemExit(0)
 
 if int(seleccion) == len(MODULOS) + 1:
     nombre_modulo = "OTRO"
